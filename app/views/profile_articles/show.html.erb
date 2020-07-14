@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Article:</strong>
+  <%= @profile_article.article_id %>
+</p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @profile_article.profile_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @profile_article.article.title %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag(@profile_article.article.urlToImage, :size => "300x200", :crop => :fill) %>
+</p>
+
+<p>
+  <strong>Article URL:</strong>
+  <%= @profile_article.article.url %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @profile_article.article.source_name %>
+</p>
+
+<p>
+  <strong>Publication Date:</strong>
+  <%= @profile_article.article.publishedAt %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_profile_article_path(@profile_article) %> |
+<%= link_to 'Profile', profile_articles_path %> |
+<%= link_to 'Back to Home', inventory_index_path %>

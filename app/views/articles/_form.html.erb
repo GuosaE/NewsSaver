@@ -1,0 +1,65 @@
+<%= form_with(model: article, local: true) do |form| %>
+    <% if article.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+  
+        <ul>
+          <% article.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <%= form.label :Source_name %>
+      <%= form.text_field :source_name %>
+    </div>
+    <br>
+  
+    <div class="field">
+      <%= form.label :Author %>
+      <%= form.text_field :author %>
+    </div>
+    <br>
+  
+    <div class="field">
+      <%= form.label :Title %>
+      <%= form.text_field :title %>
+    </div>
+    <br>
+  
+    <div class="field">
+      <%= form.label :Description %>
+      <%= form.text_area :description, rows: 12, cols: 50 %>
+    </div>
+    <br>
+  
+    <div class="field">
+      <%= form.label :URL %>
+      <%= form.text_field :url %>
+    </div>
+    <br>
+  
+    <div class="field">
+      <%= form.label :Image_url %>
+      <%= form.text_field :urlToImage %>
+    </div>
+    <br>
+  
+    <div class="field">
+      <%= form.label :Publication_date %>
+      <%= form.datetime_select :publishedAt %>
+    </div>
+    <br>
+  
+    <div class="field">
+      <%= form.label :Content %>
+      <%= form.text_area :content %>
+    </div>
+    <br>
+  
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>

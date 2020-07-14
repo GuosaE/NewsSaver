@@ -1,0 +1,33 @@
+<div align="center"><h1>News Saver</h1></div>
+<div align="center"><h2>Articles Preview</h2></div>
+
+<div align="center"><%= link_to 'Article Details', articles_path %></div>
+
+<% if current_user %>
+  Logged in as <%= current_user.name %>.
+  <%= link_to "Log Out", logout_path %>
+<% else %>
+  <%= link_to "Sign Up", signup_path %> or 
+  <%= link_to "Log In", login_path %>
+<% end %>
+
+<p id=”notice”><%= notice %></p>
+
+<ul>
+    <% @articles.each do |article| %>
+        <li>
+            <%= image_tag(article.urlToImage, :size => "200x150", :crop => :fill) %>
+            <h2><%= article.title %></h2>
+            <h3><%= article.author %></h3>
+            <h4><%= article.source_name %></h4>
+            <p>
+                <%= truncate(article.description, length: 200) %>
+            </p>
+            <div>
+                <%= button_to 'Add Article to Profile', profile_articles_path(article_id: article) %>
+            </div>
+            <br>
+            <br>
+        </li>
+    <% end %>
+</ul>

@@ -1,0 +1,27 @@
+
+<% if flash[:alert] %>
+    <aside class="notice"><%= flash[:alert] %></aside>
+<% end %>
+
+<h1>Login</h1>
+
+<%= form_tag do %>
+    <h3>Please Log In</h3>
+    <div class="field">
+        <%= label_tag :name, 'Name:' %>
+        <%= text_field_tag :name, params[:name] %>
+    </div>
+    <br>
+    <div class="field">
+        <%= label_tag :password, 'Password:' %>
+        <%= password_field_tag :password, params[:password] %>
+    </div>
+
+    <div class="actions">
+        <%= submit_tag "Login" %>
+    </div>
+<% end %>
+
+<%= link_to 'Back to Home', inventory_index_path %>
+
+

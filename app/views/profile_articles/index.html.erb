@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<div align="center"><h1>Saved Profile Articles</h1></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Article ID</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Source</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @profile_articles.each do |profile_article| %>
+      <tr>
+        <td><div align="center"><%= profile_article.article_id %></div></td>
+        <td><div align="center"><%= profile_article.article.title %></div></td>
+        <td><div align="center"><%= profile_article.article.author %></div></td>
+        <td><div align="center"><%= profile_article.article.source_name %></div></td>
+        <td><%= link_to 'Show', profile_article %></td>
+        <td><%= link_to 'Delete', profile_article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back to Home', inventory_index_path %>
